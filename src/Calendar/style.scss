@@ -1,0 +1,128 @@
+$containerMinWidth: 24 * 60;
+$timelineWidth: 40px;
+$timelinePadding: 10px;
+$timelineBorderWidth: 1px;
+$timelineBorderColor: #efefef;
+$eventPadding: $timelinePadding / 2;
+$eventBorderRadius: 3px;
+$eventContainerVerticalPadding: $timelinePadding;
+$eventContainerHorizontalPadding: $timelinePadding * 2;
+$dayPadding: $eventPadding;
+$dayBorderWidth: 1px;
+$dayBorderColor: #c3c3c3;
+
+%container {
+  min-height: $containerMinWidth;
+  height: calc(100vh - #{$timelinePadding * 2});
+  position: relative;
+}
+
+%absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+%hour {
+  height: 1 / 24 * 100%;
+  box-sizing: border-box;
+}
+
+.timelineContainer {
+  float: left;
+  padding: $timelinePadding;
+  background: #fafafa;
+  color: #bbb;
+  width: $timelineWidth;
+  border-right: $timelineBorderWidth solid $timelineBorderColor;
+}
+
+.timeline {
+  @extend %container;
+  text-align: center;
+}
+
+.timelineStepsContainer {
+  @extend %absolute;
+}
+
+.timelineStep {
+  @extend %hour;
+  position: relative;
+  top: -10px;
+}
+
+.eventsContainer {
+  margin-left: $timelineWidth + $timelinePadding * 2 + $timelineBorderWidth;
+  padding: $eventContainerVerticalPadding $eventContainerHorizontalPadding;
+}
+
+.dayContainer {
+  @extend %container;
+}
+
+.eventsBackgroundContainer {
+  @extend %container;
+}
+
+.eventsBackground {
+  @extend %absolute;
+}
+
+.eventsBackgroundHour {
+  @extend %hour;
+  border-bottom: 1px solid $timelineBorderColor;
+
+  &:last-child {
+    border: 0;
+  }
+}
+
+.eventContainer {
+  position: absolute;
+}
+
+.eventPadding,
+.event {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.eventPadding {
+  padding-left: $eventPadding;
+}
+
+.event {
+  background: #54ef93;
+  padding: $eventPadding;
+  border-radius: $eventBorderRadius;
+  overflow: hidden;
+}
+
+.eventTitle {
+  font-weight: bold;
+  color: rgba(0,0,0,.5)
+}
+
+.eventLocation {
+  color: rgba(0,0,0,.3)
+}
+
+
+.weekDay {
+  @extend %container;
+
+  $used: $timelineWidth + $timelinePadding * 2 + $timelineBorderWidth + $eventContainerHorizontalPadding * 2 + ($dayPadding + $dayBorderWidth) * 6;
+  width: calc(((100vw - #{$used}) / 7));
+
+  float: left;
+  border-right: $dayBorderWidth dotted $dayBorderColor;
+  padding-right: $dayPadding;
+
+  &:last-child {
+    padding-right: 0;
+    border: 0;
+  }
+}
