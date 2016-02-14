@@ -1,7 +1,7 @@
 {
   "name": "react-week-calendar",
   "version": "0.0.1",
-  "description": "A calendar that show event for a week...",
+  "description": "A calendar that shows events for a week...",
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src"
