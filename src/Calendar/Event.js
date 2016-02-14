@@ -13,7 +13,7 @@ const Event = ({ width, height, top, left }) => {
     <div className={style.eventContainer} style={s}>
       <div className={style.eventPadding}>
         <div className={style.event}>
-          <div className={style.eventTitle}>Sample iteme</div>
+          <div className={style.eventTitle}>Sample item</div>
           <div className={style.eventLocation}>Sample location</div>
         </div>
       </div>
